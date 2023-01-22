@@ -1,0 +1,6 @@
+name = "course-tracker"
+main = "./src/index.js"
+compatibility_date = "2023-01-22"
+
+account_id = "90f3442409f6b1498340240b7fa6b880"
+workers_dev = true
