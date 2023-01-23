@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import CourseForm from './components/CourseForm'
 import CourseList from './components/CourseList'
 import { coursesThunkGet } from './store/thunk'
+import { getCoruses } from './store/select'
 
 import './App.css'
 
 function App() {
   const dispatch = useDispatch()
-  const courses = useSelector((state) => state.courses.courses)
+  const courses = useSelector(getCoruses)
+
+  console.log(process.env.SECRET_KEY_AIRTABLE, process.env.SECRET_ID_AIRTABLE)
 
   useEffect(() => {
     dispatch(coursesThunkGet())
