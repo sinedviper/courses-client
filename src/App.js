@@ -1,38 +1,27 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import CourseForm from './components/CourseForm';
-import CourseList from './components/CourseList';
-import {table} from "./utils/api"
-import './App.css';
+import CourseForm from './components/CourseForm'
+import CourseList from './components/CourseList'
+import { coursesThunkGet } from './store/thunk'
 
-
-
+import './App.css'
 
 function App() {
-  const [courses, setCourses] = useState([]);
-  
-  const loadCourses = async () => {
-    try {
-
-      const fields = await table.select().firstPage()
-
-      console.log(fields)
-    } catch (error) {
-        console.error(error);
-    }
-  }
+  const dispatch = useDispatch()
+  const courses = useSelector((state) => state.courses.courses)
 
   useEffect(() => {
-    loadCourses();
-  }, []);
-  
+    dispatch(coursesThunkGet())
+  }, [])
+
   return (
-    <div className="container mt-5">
-          <h1 className="mb-5 text-center">Course Tracker</h1>
-          <CourseForm courseAdded={loadCourses} />
-          {courses && <CourseList courses={courses} refreshCourses={loadCourses} />}
+    <div className='container mt-5'>
+      <h1 className='mb-5 text-center'>Course Tracker</h1>
+      <CourseForm />
+      <CourseList courses={courses} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
