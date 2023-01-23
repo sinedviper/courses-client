@@ -12,8 +12,6 @@ function App() {
   const dispatch = useDispatch()
   const courses = useSelector(getCoruses)
 
-  console.log(process.env.SECRET_KEY_AIRTABLE, process.env.SECRET_ID_AIRTABLE)
-
   useEffect(() => {
     dispatch(coursesThunkGet())
   }, [])
