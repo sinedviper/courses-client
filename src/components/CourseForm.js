@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import Tags from './Tags'
-import { useDispatch } from 'react-redux'
 import { coursesThunkAdd } from '../store/thunk'
 
 export default function CourseForm() {
