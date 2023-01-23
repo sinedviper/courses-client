@@ -5,12 +5,6 @@
 
 ---
 
-### :minidisc: Site
-
-<a href="https://courses-client.pages.dev/">Project site</a>
-
----
-
 ### :book: Libraries
 
 - react
